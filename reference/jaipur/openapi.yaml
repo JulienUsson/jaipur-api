@@ -1,0 +1,92 @@
+openapi: 3.0.0
+info:
+  title: Jaipur
+  version: '1.0'
+  description: API pour le jeu de société Jaipur
+  contact:
+    name: Julien Usson
+    email: julien@usson.me
+    url: 'https://cours.usson.me'
+servers:
+  - url: 'http://localhost:3000'
+    description: Local
+tags:
+  - name: Game
+    description: Everything about game
+  - name: Health
+    description: Everything about process health
+paths:
+  /games:
+    post:
+      summary: Create a game
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/game.yaml
+      description: Créer et initialiser une partie.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/create-game.yaml
+      operationId: createGame
+      tags:
+        - Game
+    parameters: []
+    get:
+      summary: Get all games
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./models/game.yaml
+      description: Lister toutes les parties.
+      parameters: []
+      tags:
+        - Game
+      operationId: findAllGames
+  '/games/{name}':
+    get:
+      summary: Get a game
+      description: Récupérer une partie via un identifiant.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/game.yaml
+        '404':
+          description: Game not found.
+      operationId: getGame
+      tags:
+        - Game
+    parameters:
+      - schema:
+          type: string
+        name: name
+        in: path
+        required: true
+  /health:
+    get:
+      summary: Get application status
+      tags:
+        - Health
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/healthstatus.yaml
+      description: Récupérer le status de l'application.
+      operationId: getHealth
+components:
+  schemas: {}

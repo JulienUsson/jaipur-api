@@ -1,0 +1,13 @@
+{
+  "name": "jaipur-api",
+  "version": "1.0.0",
+  "description": "Jaipur Api",
+  "scripts": {
+    "build": "openapi-generator-cli generate -i ./reference/jaipur/openapi.yaml -g html2 -o ./build && openapi-generator-cli generate -i ./reference/jaipur/openapi.yaml -g openapi-yaml -o ./build"
+  },
+  "author": "Julien Usson",
+  "license": "MIT",
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.3.10"
+  }
+}

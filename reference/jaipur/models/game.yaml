@@ -1,0 +1,15 @@
+title: Game
+type: object
+description: A game
+properties:
+  currentPlayer:
+    type: number
+    maximum: 2
+    minimum: 1
+    description: Identifiant du joueur actuel.
+  name:
+    type: string
+    description: Nom de la partie.
+required:
+  - currentPlayer
+  - name

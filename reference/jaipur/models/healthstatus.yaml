@@ -1,0 +1,7 @@
+title: healthStatus
+type: object
+properties:
+  health:
+    type: string
+required:
+  - health
