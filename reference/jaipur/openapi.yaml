@@ -18,7 +18,7 @@ tags:
 paths:
   /games:
     post:
-      summary: Create a game
+      summary: Créer une partie
       responses:
         '201':
           description: Created
@@ -26,7 +26,7 @@ paths:
             application/json:
               schema:
                 $ref: ./models/game.yaml
-      description: Créer et initialiser une partie.
+      description: ''
       requestBody:
         content:
           application/json:
@@ -37,7 +37,7 @@ paths:
         - Game
     parameters: []
     get:
-      summary: Get all games
+      summary: Récupérer toutes les parties
       responses:
         '200':
           description: OK
@@ -47,15 +47,15 @@ paths:
                 type: array
                 items:
                   $ref: ./models/game.yaml
-      description: Lister toutes les parties.
+      description: ''
       parameters: []
       tags:
         - Game
       operationId: findAllGames
   '/games/{id}':
     get:
-      summary: Get a game
-      description: Récupérer une partie via un identifiant.
+      summary: Récupérer une partie
+      description: ''
       responses:
         '200':
           description: OK
@@ -70,12 +70,13 @@ paths:
         - Game
     parameters:
       - schema:
-          type: string
+          type: number
         name: id
         in: path
         required: true
+        description: Identifiant de la partie
     delete:
-      summary: ''
+      summary: Supprimer une partie
       operationId: deleteGameById
       responses:
         '200':
@@ -84,7 +85,7 @@ paths:
         - Game
   /health:
     get:
-      summary: Get application status
+      summary: Récupérer le status de l'application
       tags:
         - Health
       responses:
@@ -94,17 +95,18 @@ paths:
             application/json:
               schema:
                 $ref: ./models/healthstatus.yaml
-      description: Récupérer le status de l'application.
+      description: ''
       operationId: getHealth
   '/games/{id}/take-good':
     parameters:
       - schema:
-          type: string
+          type: number
         name: id
         in: path
         required: true
+        description: Identifiant de la partie
     put:
-      summary: ''
+      summary: Prendre 1 seule marchandise
       operationId: takeGood
       responses:
         '200':
@@ -119,6 +121,7 @@ paths:
           in: header
           name: playerIndex
           required: true
+          description: Index du joueur
       tags:
         - Game
       requestBody:
@@ -129,12 +132,13 @@ paths:
   '/games/{id}/exchange':
     parameters:
       - schema:
-          type: string
+          type: number
         name: id
         in: path
         required: true
+        description: Identifiant de la partie
     put:
-      summary: ''
+      summary: Prendre plusieurs marchandises
       operationId: exchange
       responses:
         '200':
@@ -149,6 +153,7 @@ paths:
           in: header
           name: playerIndex
           required: true
+          description: Index du joueur
       tags:
         - Game
       requestBody:
@@ -159,12 +164,13 @@ paths:
   '/games/{id}/take-camels':
     parameters:
       - schema:
-          type: string
+          type: number
         name: id
         in: path
         required: true
+        description: Identifiant de la partie
     put:
-      summary: ''
+      summary: Prendre les chameaux
       operationId: takeCamels
       responses:
         '200':
@@ -179,17 +185,19 @@ paths:
           in: header
           name: playerIndex
           required: true
+          description: Index du joueur
       tags:
         - Game
   '/games/{id}/sell':
     parameters:
       - schema:
-          type: string
+          type: number
         name: id
         in: path
         required: true
+        description: Identifiant de la partie
     put:
-      summary: ''
+      summary: Vendre des cartes
       operationId: sell
       responses:
         '200':
@@ -204,6 +212,7 @@ paths:
           in: header
           name: playerIndex
           required: true
+          description: Index du joueur
       tags:
         - Game
       requestBody:

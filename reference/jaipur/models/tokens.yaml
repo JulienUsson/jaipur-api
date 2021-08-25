@@ -3,26 +3,38 @@ type: object
 properties:
   diamonds:
     type: array
+    minItems: 0
+    maxItems: 5
     items:
       type: number
   gold:
     type: array
+    minItems: 0
+    maxItems: 5
     items:
       type: number
   silver:
     type: array
+    minItems: 0
+    maxItems: 5
     items:
       type: number
   cloth:
     type: array
+    minItems: 0
+    maxItems: 7
     items:
       type: number
   spice:
     type: array
+    minItems: 0
+    maxItems: 7
     items:
       type: number
   leather:
     type: array
+    minItems: 0
+    maxItems: 9
     items:
       type: number
 required:
