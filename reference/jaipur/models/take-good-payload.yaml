@@ -1,0 +1,7 @@
+title: take-good-payload
+type: object
+properties:
+  good:
+    $ref: ./good.yaml
+required:
+  - good

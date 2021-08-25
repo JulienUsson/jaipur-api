@@ -1,0 +1,9 @@
+type: string
+title: good
+enum:
+  - diamonds
+  - gold
+  - silver
+  - cloth
+  - spice
+  - leather

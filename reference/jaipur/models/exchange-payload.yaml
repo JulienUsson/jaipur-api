@@ -1,0 +1,11 @@
+title: exchange-payload
+type: object
+properties:
+  take:
+    type: array
+    items:
+      $ref: ./good.yaml
+  give:
+    type: array
+    items:
+      $ref: ./good-or-camel.yaml

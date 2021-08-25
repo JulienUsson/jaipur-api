@@ -2,14 +2,30 @@ title: Game
 type: object
 description: A game
 properties:
-  currentPlayer:
+  currentPlayerIndex:
     type: number
     maximum: 2
     minimum: 1
     description: Identifiant du joueur actuel.
   name:
     type: string
-    description: Nom de la partie.
+  isDone:
+    type: boolean
+  id:
+    type: number
+  market:
+    type: array
+    minItems: 5
+    maxItems: 5
+    items:
+      $ref: ./good.yaml
+  tokens:
+    $ref: ./tokens.yaml
 required:
-  - currentPlayer
+  - currentPlayerIndex
   - name
+  - isDone
+  - id
+  - name
+  - market
+  - tokens

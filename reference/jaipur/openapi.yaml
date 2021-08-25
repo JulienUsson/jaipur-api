@@ -20,8 +20,8 @@ paths:
     post:
       summary: Create a game
       responses:
-        '200':
-          description: OK
+        '201':
+          description: Created
           content:
             application/json:
               schema:
@@ -52,7 +52,7 @@ paths:
       tags:
         - Game
       operationId: findAllGames
-  '/games/{name}':
+  '/games/{id}':
     get:
       summary: Get a game
       description: Récupérer une partie via un identifiant.
@@ -65,15 +65,23 @@ paths:
                 $ref: ./models/game.yaml
         '404':
           description: Game not found.
-      operationId: getGame
+      operationId: findOneGameById
       tags:
         - Game
     parameters:
       - schema:
           type: string
-        name: name
+        name: id
         in: path
         required: true
+    delete:
+      summary: ''
+      operationId: deleteGameById
+      responses:
+        '200':
+          description: OK
+      tags:
+        - Game
   /health:
     get:
       summary: Get application status
@@ -88,5 +96,120 @@ paths:
                 $ref: ./models/healthstatus.yaml
       description: Récupérer le status de l'application.
       operationId: getHealth
+  '/games/{id}/take-good':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: takeGood
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/game.yaml
+      parameters:
+        - schema:
+            type: number
+          in: header
+          name: playerIndex
+          required: true
+      tags:
+        - Game
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/take-good-payload.yaml
+  '/games/{id}/exchange':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: exchange
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/game.yaml
+      parameters:
+        - schema:
+            type: number
+          in: header
+          name: playerIndex
+          required: true
+      tags:
+        - Game
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/exchange-payload.yaml
+  '/games/{id}/take-camels':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: takeCamels
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/game.yaml
+      parameters:
+        - schema:
+            type: number
+          in: header
+          name: playerIndex
+          required: true
+      tags:
+        - Game
+  '/games/{id}/sell':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: sell
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/game.yaml
+      parameters:
+        - schema:
+            type: number
+          in: header
+          name: playerIndex
+          required: true
+      tags:
+        - Game
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/sell-payload.yaml
 components:
   schemas: {}

@@ -1,0 +1,34 @@
+title: tokens
+type: object
+properties:
+  diamonds:
+    type: array
+    items:
+      type: number
+  gold:
+    type: array
+    items:
+      type: number
+  silver:
+    type: array
+    items:
+      type: number
+  cloth:
+    type: array
+    items:
+      type: number
+  spice:
+    type: array
+    items:
+      type: number
+  leather:
+    type: array
+    items:
+      type: number
+required:
+  - diamonds
+  - gold
+  - silver
+  - cloth
+  - spice
+  - leather

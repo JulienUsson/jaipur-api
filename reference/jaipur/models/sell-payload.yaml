@@ -1,0 +1,11 @@
+title: sell-payload
+type: object
+properties:
+  good:
+    $ref: ./good.yaml
+  count:
+    type: number
+    minimum: 1
+required:
+  - good
+  - count
