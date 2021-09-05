@@ -4,8 +4,8 @@ description: A game
 properties:
   currentPlayerIndex:
     type: number
-    maximum: 2
-    minimum: 1
+    maximum: 1
+    minimum: 0
     description: Identifiant du joueur actuel.
   name:
     type: string
