@@ -1,6 +1,6 @@
 title: Game
 type: object
-description: A game
+description: A complete game
 properties:
   currentPlayerIndex:
     type: number

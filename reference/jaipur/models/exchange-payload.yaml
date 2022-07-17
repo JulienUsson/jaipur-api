@@ -9,3 +9,6 @@ properties:
     type: array
     items:
       $ref: ./good-or-camel.yaml
+required:
+  - take
+  - give

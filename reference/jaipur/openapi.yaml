@@ -46,13 +46,13 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: ./models/game.yaml
+                  $ref: ./models/game-preview.yaml
       description: ''
       parameters: []
       tags:
         - Game
-      operationId: findAllGames
-  '/games/{id}':
+      operationId: findAllActiveGames
+  '/games/{gameId}':
     get:
       summary: Récupérer une partie
       description: ''
@@ -70,11 +70,10 @@ paths:
         - Game
     parameters:
       - schema:
-          type: number
-        name: id
+          type: integer
+        name: gameId
         in: path
         required: true
-        description: Identifiant de la partie
     delete:
       summary: Supprimer une partie
       operationId: deleteGameById
@@ -97,15 +96,19 @@ paths:
                 $ref: ./models/healthstatus.yaml
       description: ''
       operationId: getHealth
-  '/games/{id}/take-good':
+  '/games/{gameId}/players/{playerId}/take-good':
     parameters:
       - schema:
-          type: number
-        name: id
+          type: integer
+        name: gameId
         in: path
         required: true
-        description: Identifiant de la partie
-    put:
+      - schema:
+          type: integer
+        name: playerId
+        in: path
+        required: true
+    post:
       summary: Prendre 1 seule marchandise
       operationId: takeGood
       responses:
@@ -115,13 +118,7 @@ paths:
             application/json:
               schema:
                 $ref: ./models/game.yaml
-      parameters:
-        - schema:
-            type: number
-          in: header
-          name: playerIndex
-          required: true
-          description: Index du joueur
+      parameters: []
       tags:
         - Game
       requestBody:
@@ -129,15 +126,19 @@ paths:
           application/json:
             schema:
               $ref: ./models/take-good-payload.yaml
-  '/games/{id}/exchange':
+  '/games/{gameId}/players/{playerId}/exchange':
     parameters:
       - schema:
-          type: number
-        name: id
+          type: integer
+        name: gameId
         in: path
         required: true
-        description: Identifiant de la partie
-    put:
+      - schema:
+          type: integer
+        name: playerId
+        in: path
+        required: true
+    post:
       summary: Prendre plusieurs marchandises
       operationId: exchange
       responses:
@@ -147,13 +148,7 @@ paths:
             application/json:
               schema:
                 $ref: ./models/game.yaml
-      parameters:
-        - schema:
-            type: number
-          in: header
-          name: playerIndex
-          required: true
-          description: Index du joueur
+      parameters: []
       tags:
         - Game
       requestBody:
@@ -161,15 +156,19 @@ paths:
           application/json:
             schema:
               $ref: ./models/exchange-payload.yaml
-  '/games/{id}/take-camels':
+  '/games/{gameId}/players/{playerId}/take-camels':
     parameters:
       - schema:
-          type: number
-        name: id
+          type: integer
+        name: gameId
         in: path
         required: true
-        description: Identifiant de la partie
-    put:
+      - schema:
+          type: integer
+        name: playerId
+        in: path
+        required: true
+    post:
       summary: Prendre les chameaux
       operationId: takeCamels
       responses:
@@ -179,24 +178,22 @@ paths:
             application/json:
               schema:
                 $ref: ./models/game.yaml
-      parameters:
-        - schema:
-            type: number
-          in: header
-          name: playerIndex
-          required: true
-          description: Index du joueur
+      parameters: []
       tags:
         - Game
-  '/games/{id}/sell':
+  '/games/{gameId}/players/{playerId}/sell':
     parameters:
       - schema:
-          type: number
-        name: id
+          type: integer
+        name: gameId
         in: path
         required: true
-        description: Identifiant de la partie
-    put:
+      - schema:
+          type: integer
+        name: playerId
+        in: path
+        required: true
+    post:
       summary: Vendre des cartes
       operationId: sell
       responses:
