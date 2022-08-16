@@ -4,7 +4,7 @@ properties:
   good:
     $ref: ./good.yaml
   count:
-    type: number
+    type: integer
     minimum: 1
 required:
   - good

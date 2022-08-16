@@ -54,7 +54,7 @@ paths:
       tags:
         - Game
       operationId: findAllActiveGames
-  '/games/{gameId}':
+  '/games/{gameId}/players/{playerId}':
     get:
       summary: Récupérer une partie
       description: ''
@@ -67,7 +67,7 @@ paths:
                 $ref: ./models/game.yaml
         '404':
           description: Game not found.
-      operationId: findOneGameById
+      operationId: findOneGameByIdAndPlayerId
       tags:
         - Game
     parameters:
@@ -76,6 +76,12 @@ paths:
         name: gameId
         in: path
         required: true
+      - schema:
+          type: integer
+        name: playerId
+        in: path
+        required: true
+  '/games/{gameId}':
     delete:
       summary: Supprimer une partie
       operationId: deleteGameById
@@ -86,6 +92,12 @@ paths:
           description: Not Found
       tags:
         - Game
+    parameters:
+      - schema:
+          type: integer
+        name: gameId
+        in: path
+        required: true
   /health:
     get:
       summary: Récupérer le status de l'application
@@ -225,7 +237,7 @@ paths:
           description: Not Found
       parameters:
         - schema:
-            type: number
+            type: integer
           in: header
           name: playerIndex
           required: true
