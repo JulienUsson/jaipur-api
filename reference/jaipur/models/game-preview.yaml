@@ -1,11 +1,11 @@
 title: game-preview
 type: object
+description: A game with minimal infos
 properties:
   id:
-    type: string
+    type: integer
   name:
     type: string
 required:
   - id
   - name
-description: A game with minimal infos
