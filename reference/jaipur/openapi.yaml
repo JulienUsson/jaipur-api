@@ -80,6 +80,8 @@ paths:
       responses:
         '200':
           description: OK
+        '404':
+          description: Not Found
       tags:
         - Game
   /health:
@@ -118,6 +120,10 @@ paths:
             application/json:
               schema:
                 $ref: ./models/game.yaml
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
       parameters: []
       tags:
         - Game
@@ -148,6 +154,10 @@ paths:
             application/json:
               schema:
                 $ref: ./models/game.yaml
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
       parameters: []
       tags:
         - Game
@@ -178,6 +188,10 @@ paths:
             application/json:
               schema:
                 $ref: ./models/game.yaml
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
       parameters: []
       tags:
         - Game
@@ -203,6 +217,10 @@ paths:
             application/json:
               schema:
                 $ref: ./models/game.yaml
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
       parameters:
         - schema:
             type: number
