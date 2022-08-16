@@ -26,6 +26,8 @@ paths:
             application/json:
               schema:
                 $ref: ./models/game-preview.yaml
+        '400':
+          description: Bad Request
       description: ''
       requestBody:
         content:
