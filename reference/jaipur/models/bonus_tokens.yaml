@@ -17,4 +17,5 @@ properties:
     maximum: 5
 required:
   - '3'
+  - '4'
   - '5'
