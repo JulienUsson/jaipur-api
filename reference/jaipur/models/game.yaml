@@ -16,7 +16,7 @@ properties:
     minItems: 5
     maxItems: 5
     items:
-      $ref: ./good.yaml
+      $ref: ./good-or-camel.yaml
   tokens:
     $ref: ./tokens.yaml
   hand:
