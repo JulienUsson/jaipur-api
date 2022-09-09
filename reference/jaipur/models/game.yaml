@@ -32,6 +32,8 @@ properties:
     type: integer
     minimum: 0
     maximum: 1
+  bonusTokens:
+    $ref: ./bonus_tokens.yaml
 required:
   - currentPlayerIndex
   - name
@@ -40,3 +42,4 @@ required:
   - tokens
   - hand
   - camelsCount
+  - bonusTokens

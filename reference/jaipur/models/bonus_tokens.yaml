@@ -1,0 +1,20 @@
+title: bonus_tokens
+x-stoplight:
+  id: djrl6xgmi4kz9
+type: object
+properties:
+  '3':
+    type: number
+    minimum: 0
+    maximum: 7
+  '4':
+    type: number
+    minimum: 0
+    maximum: 6
+  '5':
+    type: number
+    minimum: 0
+    maximum: 5
+required:
+  - '3'
+  - '5'
