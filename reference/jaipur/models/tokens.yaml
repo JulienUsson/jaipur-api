@@ -37,6 +37,18 @@ properties:
     maxItems: 9
     items:
       type: number
+  three:
+    type: number
+    minimum: 0
+    maximum: 7
+  four:
+    type: number
+    minimum: 0
+    maximum: 6
+  five:
+    type: number
+    minimum: 0
+    maximum: 5
 required:
   - diamonds
   - gold
@@ -44,3 +56,6 @@ required:
   - cloth
   - spice
   - leather
+  - three
+  - four
+  - five
